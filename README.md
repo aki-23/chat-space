@@ -4,29 +4,32 @@
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
+|name|string|null: false, index: true|
 |email|string|null: false|
 |password|string|null: false|
 
 ### Association
 - has_many :posts
 - has_many :groups, through: :groups_users
+- has_mane :groups_users
 
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|groupname|string|null: false|
+|name|string|null: false|
 
 ### Association
 - has_many :posts
 - has_many :users, through: :groups_users
+- has_mane :groups_users
 
 ## postsテーブル
 |Column|Type|Option|
 |------|----|------|
-|message|text|null: false|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|message|text||
+|image|text||
+|user|references|null: false, foreign_key: true|
+|group|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -36,8 +39,8 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|user_id|integer|null: false, foreign_key: true|
-|group_id|integer|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+|group|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :group
