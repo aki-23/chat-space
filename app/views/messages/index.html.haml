@@ -1,0 +1,55 @@
+.flash-box
+  グループを作成しました。
+
+.content
+  .content__side
+    .content__side-header
+      .content__side-header__user-name
+        user
+      .content__side-header__user-menu
+        .content__side-header__user-menu__group-create
+          = fa_icon 'edit'
+        .content__side-header__user-menu__user-set
+          = fa_icon 'cog'
+    
+    .content__side-groups
+      .content__side-groups__group-box
+        .content__side-groups__group-box__group-name
+          sample
+        .content__side-groups__group-box__group-message
+          message
+
+  .content__main
+    .content__main-header
+      .content__main-header__group-box
+        .content__main-header__group-box__group-name
+          group
+        .content__main-header__group-box__group-members
+          members
+      .content__main-header__edit
+        =link_to "",class: "contents__btn" do 
+          Edit
+
+    .content__main__message
+      .content__main__message-box
+        .content__main__message-box__user-name
+          user
+          .content__main__message-box__user-name__create-at
+            created_at
+        .content__main__message-box__message
+          messege
+
+    .content__main__form
+      .content__main__form-box
+        %input{type: "text",placeholder: "type a message",class: "text"}
+        %label
+          =fa_icon 'image'
+          %input{type: "file",class: "file"}
+      .content__main__form-send
+        %input{type: "submit",value: "Send",class: "send"}
+
+
+
+
+
+
