@@ -3,47 +3,48 @@
   margin: 0;
   padding: 0;
 }
-.flash-box {
-  background-color: #38aef0;
-  font-size: 16px;
-  color: #fff;
-  text-align: center;
-}
+
 .content {
   display: flex;
   justify-content: flex-start;
-  &__side {
+  .side-bar {
     text-decoration: none;
     width: 300px;
     color: #ffffff;
-    &-header {
+    .header {
       @include header;
       align-items: center;
       font-size: 16px;
       background-color: #253141;
       padding: 0 20px;
-      &__user-name {
+      &__name {
         font-weight: bold;
       }
-      &__user-menu {
+      &__lists {
         display: flex;
-        &__user-set {
+        .icon {
+          color: #ffffff;
           margin-left: 5px;
         }
       }
     }
-    &-groups {
+    .groups {
       background-color: #2f3e51;
       padding: 0 20px;
       height: calc(100vh - 96px);
-      &__group-box {
+      .group {
         padding: 20px 0;
         font-weight: bold;
-        &__group-name {
+        text-decoration: none;
+        a {
+          text-decoration: none;
+          color: #ffffff;
+        }
+        &__name {
           font-size: 15px;
           margin-bottom: 5px;
         }
-        &__group-message {
+        &__message {
           font-size: 1px;
         }
       }
