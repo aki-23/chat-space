@@ -31,7 +31,8 @@
     .groups {
       background-color: #2f3e51;
       padding: 0 20px;
-      height: calc(100vh - 96px);
+      height: calc(100vh - 100px);
+      overflow: scroll;
       .group {
         padding: 20px 0;
         font-weight: bold;
@@ -45,7 +46,7 @@
           margin-bottom: 5px;
         }
         &__message {
-          font-size: 1px;
+          font-size: 11px;
         }
       }
     }
@@ -90,66 +91,71 @@
         }
       }
     }
-    &__message {
+    .message {
       background-color: #eeeeee;
       padding: 46px 40px;
-      height: calc(100vh - 186px);
+      height: calc(100vh - 100px - 92px);
+      color: #434a54;
+      overflow: scroll;
       &-box {
         margin-bottom: 40px;
-        color: #434a54;
-        &__user-name {
+      }
+      .upper-message {
+        display: flex;
+        margin-bottom: 10px;
+        .upper-message__user-name {
           font-size: 16px;
           font-weight: bold;
-          display: flex;
-          margin-bottom: 10px;
-          &__create-at {
-            font-size: 12px;
-            color: #999999;
-            margin-left: 10px;
-            font-weight: normal;
-          }
         }
-        &__message {
-          font-size: 14px;
+        .upper-message__date {
+          font-size: 12px;
+          color: #999999;
+          padding-left: 10px;
+          font-weight: normal;
         }
       }
+        .lower-message {
+          font-size: 14px;
+        }
     }
-    &__form {
+    .form {
       font-size: 16px;
       align-items: center;
       background-color: gray;
       display: flex;
       padding: 0 40px;
       height: 90px;
-      &-box {
+      .new_message {
+        width: 100%;
+        display: flex;
+      }
+      &__box {
         height: 50px;
         color: #434a54;
         background-color: #fff;
         padding: 0 10px;
         width: 100%;
-        position: relative;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        .text {
+        .form__message {
           border: none;
           height: 50px;
           width: 100%;
+          outline: none;
         }
-        .file {
+        .hidden {
           display: none;
         }
       }
-      &-send {
-        .send {
-          background-color: #38aef0;
-          color: #fff;
-          line-height: 50px;
-          margin-left: 15px;
-          width: 100px;
-          border: none;
-          text-align: center;
-        }
+      .form__submit {
+        background-color: #38aef0;
+        color: #fff;
+        line-height: 50px;
+        margin-left: 15px;
+        width: 100px;
+        border: none;
+        text-align: center;
       }
     }
   }
