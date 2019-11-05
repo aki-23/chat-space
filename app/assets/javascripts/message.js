@@ -1,45 +1,25 @@
 $(function(){
   function buildHTML(message){
-    if (message.image){
-      let html =
-        `<div class="message-box">
-          <div class="upper-message">
-            <div class="upper-message__user-name">
-              ${message.user_name}
-            </div>
-            <div class="upper-message__date">
-              ${message.date}
-            </div>
+    let html =
+      `<div class="message-box">
+        <div class="upper-message">
+          <div class="upper-message__user-name">
+            ${message.user_name}
           </div>
-          <div class="lower-message">
-            <p class="lower-message__content">
-              ${message.content}
-            </p>
+          <div class="upper-message__date">
+            ${message.date}
           </div>
-          <div class="lower-message">
-            <img src=${message.image} >
-          </div>
-        </div>`
-      return html;
-    } else {
-      let html =
-        `<div class="message-box">
-          <div class="upper-message">
-            <div class="upper-message__user-name">
-              ${message.user_name}
-            </div>
-            <div class="upper-message__date">
-              ${message.date}
-            </div>
-          </div>
-          <div class="lower-message">
-            <p class="lower-message__content">
-              ${message.content}
-            </p>
-          </div>
-        </div>`
-      return html;
-    };
+        </div>
+        <div class="lower-message">
+          <p class="lower-message__content">
+            ${message.content}
+          </p>
+        </div>
+        <div class="lower-message">
+          ${message.image} !== null ? <img src=${message.image} > : <img src="">
+        </div>
+      </div>`
+    return html;
   };
 
   $('#new_message').on('submit', function(e){
