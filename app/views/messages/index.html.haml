@@ -11,7 +11,7 @@
           - @group.users.each do |user|
             = user.name
       .content__main-header__edit
-        = link_to edit_group_path(current_user), class: "contents__btn" do
+        = link_to edit_group_path(@group), class: "contents__btn", data: {"turbolinks" => false} do
           Edit
     .message
       = render partial: 'message', collection: @messages
