@@ -7,16 +7,19 @@
     height: 100px;
     line-height: 100px;
     padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
     &__name {
       display: inline-block;
       font-size: 16px;
       font-weight: bold;
     }
     &__lists {
-      display: inline-block;
-      float: right;
+      height: 100%;
+      display: flex;
       .list {
         display: inline-block;
+        margin-left: 10px;
       }
       .icon {
         color: #ffffff;
@@ -29,6 +32,8 @@
     background-color: #2f3e51;
     height: calc(100vh - 100px);
     padding: 0 20px;
+    overflow: scroll;
+    width: 260px;
     a {
       text-decoration: none;
     }
