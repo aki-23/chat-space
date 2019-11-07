@@ -2,7 +2,7 @@ $(function(){
   function buildHTML(message){
     let image = (message.image !== null) ? `<img src=${message.image}>` : "";
     let html =
-      `<div class="message-box">
+      `<div class="message-box" data-message-id="${message.id}">
         <div class="upper-message">
           <div class="upper-message__user-name">
             ${message.user_name}
@@ -47,4 +47,29 @@ $(function(){
     });
     return false;
   });
+
+  let reloadMessages = function() {
+    if (window.location.href.match(/\/groups\/\d+\/messages/)){
+      let last_message_id = $('.message:last').data("message-id");
+
+      $.ajax({
+        url: 'api/messages',
+        type: 'GET',
+        dataType: 'json',
+        data: {id: last_message_id}
+      })
+      .done(function(messages) {
+        let insertHTML = '';
+        messages.forEach(function (message) {
+          insertHTML = buildHTML(message);
+          $('messages').append(insertHTML);
+        })
+        $('.message').animate({ scrollTop: $('.message')[0].scrollHeight}, 'fast');
+      })
+      .fail(function() {
+        alert('error')
+      });
+    };
+  };
+  setInterval(reloadMessages, 5000);
 });
