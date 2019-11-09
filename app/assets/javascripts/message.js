@@ -1,6 +1,6 @@
 $(function(){
   function buildHTML(message){
-    let image = (message.image !== null) ? `<img src=${message.image}>` : "";
+    let image = (message.image !== 'null') ? `<img src=${message.image}>` : "";
     let html =
       `<div class="message-box" data-message-id="${message.id}">
         <div class="upper-message">
