@@ -1,6 +1,6 @@
-$(function(){
+$("turbolinks:load", function(){
   function buildHTML(message){
-    let image = (message.image.url !== 'null') ? `<img src=${message.image.url}>` : "";
+    let image = (message.image.url !== null) ? `<img src=${message.image.url}>` : "";
     let html =
       `<div class="message-box" data-message-id="${message.id}">
         <div class="upper-message">
@@ -23,29 +23,31 @@ $(function(){
     return html;
   };
 
-  $('#new_message').on('submit', function(e){
-    e.preventDefault();
-    let formData = new FormData(this);
-    let url = $(this).attr('action');
-    // $('form').removeAttr('data-disable-with');
-    $.ajax({
-      url: url,
-      type: "POST",
-      data: formData,
-      dataType: 'json',
-      processData: false,
-      contentType: false,
-    })
-    .done(function(message){
-      let html = buildHTML(message);
-      $('.message').append(html);
-      $('.message').animate({ scrollTop: $('.message')[0].scrollHeight}, 'fast');
-      $('form')[0].reset();
-    })
-    .fail(function(){
-      alert('error');
+  $(document).on('turbolinks:load', function(){
+    $('#new_message').on('submit', function(e){
+      e.preventDefault();
+      let formData = new FormData(this);
+      let url = $(this).attr('action');
+      // $('form').removeAttr('data-disable-with');
+      $.ajax({
+        url: url,
+        type: "POST",
+        data: formData,
+        dataType: 'json',
+        processData: false,
+        contentType: false,
+      })
+      .done(function(message){
+        let html = buildHTML(message);
+        $('.message').append(html);
+        $('.message').animate({ scrollTop: $('.message')[0].scrollHeight}, 'fast');
+        $('form')[0].reset();
+      })
+      .fail(function(){
+        alert('error');
+      });
+      return false;
     });
-    return false;
   });
 
   let reloadMessages = function() {
@@ -64,7 +66,7 @@ $(function(){
           insertHTML = buildHTML(message);
           $('messages').append(insertHTML);
         })
-        // $('.message').animate({ scrollTop: $('.message')[0].scrollHeight}, 'fast');
+        $('.message').animate({ scrollTop: $('.message')[0].scrollHeight}, 'fast');
       })
       .fail(function() {
         alert('error')

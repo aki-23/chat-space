@@ -16,7 +16,7 @@
     .message
       = render partial: 'message', collection: @messages
     .form
-      = form_for [@group, @message] do |f|
+      = form_for [@group, @message],html: {'data-type': 'json', multipart: true} do |f|
         .form__box
           =f.text_field :content, class: 'form__message', placeholder: 'type a message'
           .form__mask
@@ -24,4 +24,3 @@
               = fa_icon 'image', class: 'icon'
               = f.file_field :image, class: 'hidden'
         = f.submit 'Send', class: 'form__submit'
-        
