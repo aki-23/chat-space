@@ -1,6 +1,6 @@
 $(function(){
   function buildHTML(message){
-    let image = (message.image !== 'null') ? `<img src=${message.image}>` : "";
+    let image = (message.image.url !== 'null') ? `<img src=${message.image.url}>` : "";
     let html =
       `<div class="message-box" data-message-id="${message.id}">
         <div class="upper-message">
@@ -27,7 +27,7 @@ $(function(){
     e.preventDefault();
     let formData = new FormData(this);
     let url = $(this).attr('action');
-    $('form').removeAttr('data-disable-with');
+    // $('form').removeAttr('data-disable-with');
     $.ajax({
       url: url,
       type: "POST",
@@ -64,7 +64,7 @@ $(function(){
           insertHTML = buildHTML(message);
           $('messages').append(insertHTML);
         })
-        $('.message').animate({ scrollTop: $('.message')[0].scrollHeight}, 'fast');
+        // $('.message').animate({ scrollTop: $('.message')[0].scrollHeight}, 'fast');
       })
       .fail(function() {
         alert('error')
