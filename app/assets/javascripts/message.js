@@ -66,7 +66,7 @@ $("turbolinks:load", function(){
           insertHTML = buildHTML(message);
           $('messages').append(insertHTML);
         })
-        $('.message').animate({ scrollTop: $('.message')[0].scrollHeight}, 'fast');
+        // $('.message').animate({ scrollTop: $('.message')[0].scrollHeight}, 'fast');
       })
       .fail(function() {
         alert('error')
