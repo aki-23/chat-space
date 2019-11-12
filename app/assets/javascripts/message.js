@@ -63,7 +63,7 @@ $("turbolinks:load", function(){
         let insertHTML = '';
         messages.forEach(function (message) {
           insertHTML = buildHTML(message);
-          $('.messages').append(insertHTML);
+          $('.message').append(insertHTML);
         })
         // $('.message').animate({ scrollTop: $('.message')[0].scrollHeight}, 'fast');
       })
