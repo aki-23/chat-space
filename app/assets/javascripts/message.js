@@ -56,8 +56,8 @@ $("turbolinks:load", function(){
       $.ajax({
         url: 'api/messages',
         type: 'GET',
+        data: {id: last_message_id},
         dataType: 'json',
-        data: {id: last_message_id}
       })
       .done(function(messages) {
         let insertHTML = '';
