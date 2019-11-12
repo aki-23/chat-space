@@ -53,7 +53,6 @@ $("turbolinks:load", function(){
   let reloadMessages = function() {
     if (window.location.href.match(/\/groups\/\d+\/messages/)){
       let last_message_id = $('.message:last').data("message-id");
-
       $.ajax({
         url: 'api/messages',
         type: 'GET',
@@ -64,7 +63,7 @@ $("turbolinks:load", function(){
         let insertHTML = '';
         messages.forEach(function (message) {
           insertHTML = buildHTML(message);
-          $('messages').append(insertHTML);
+          $('.messages').append(insertHTML);
         })
         // $('.message').animate({ scrollTop: $('.message')[0].scrollHeight}, 'fast');
       })
